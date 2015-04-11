@@ -1,4 +1,5 @@
 Client/client.pro.user
 dir_to_ignore/
+Serveur
 build-Client-Desktop_Qt_5_4_0_MinGW_32bit-Debug
 build-Client-Desktop_Qt_5_4_0_MinGW_32bit-Release
