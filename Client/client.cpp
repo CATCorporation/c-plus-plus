@@ -6,6 +6,7 @@ Client::Client(QWidget *parent) :
     ui(new Ui::Client)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);
 }
 
 Client::~Client()
