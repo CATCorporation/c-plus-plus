@@ -13,11 +13,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        client.cpp
+        client.cpp \
+    login.cpp \
+    renderer.cpp
 
-HEADERS  += client.h
+HEADERS  += client.h \
+    login.h \
+    renderer.h
 
-FORMS    += client.ui
+FORMS    += client.ui \
+    login.ui
 
 RESOURCES += \
     img.qrc

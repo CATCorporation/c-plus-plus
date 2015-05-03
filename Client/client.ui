@@ -114,7 +114,8 @@ padding: 0px;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:white;</string>
+     <string notr="true">background:transparent;
+border:none;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -145,22 +146,5 @@ padding: 0px;
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>exit</sender>
-   <signal>clicked()</signal>
-   <receiver>Client</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1139</x>
-     <y>21</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>586</x>
-     <y>350</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

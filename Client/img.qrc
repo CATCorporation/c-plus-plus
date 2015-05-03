@@ -2,5 +2,12 @@
     <qresource prefix="/">
         <file>img/close.png</file>
         <file>img/fond.png</file>
+        <file>img/mur1.png</file>
+        <file>img/mur2.png</file>
+        <file>img/mur3.png</file>
+        <file>img/sol1.png</file>
+        <file>img/sol2.png</file>
+        <file>img/sol3.png</file>
+        <file>img/vide.png</file>
     </qresource>
 </RCC>
