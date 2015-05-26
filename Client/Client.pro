@@ -15,14 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         client.cpp \
     login.cpp \
-    renderer.cpp
+    renderer.cpp \
+    howtoplay.cpp
 
 HEADERS  += client.h \
     login.h \
-    renderer.h
+    renderer.h \
+    howtoplay.h
 
 FORMS    += client.ui \
-    login.ui
+    login.ui \
+    howtoplay.ui
 
 RESOURCES += \
     img.qrc

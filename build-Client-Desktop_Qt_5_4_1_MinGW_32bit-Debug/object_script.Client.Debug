@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\client.o
+./debug\login.o
+./debug\renderer.o
+./debug\howtoplay.o
+./debug\qrc_img.o
+./debug\moc_client.o
+./debug\moc_login.o
+./debug\moc_renderer.o
+./debug\moc_howtoplay.o
+);

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HowToPlay</class>
+ <widget class="QDialog" name="HowToPlay">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>536</width>
+    <height>324</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>521</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>501</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>/!\ Comment jouer /!\ 
+
+
+Pour se deplacer il suffit d'écrire les commandes suivantes :
+
+up
+donw
+left
+right
+
+Deux modes de jeu sont disponibles  &quot;Anarchie&quot; ou &quot;Démocratie&quot;.
+Le mode actif est celui possédant le + de voix. Pour voter il faut taper l'une des commandes suivantes :
+
+anarchie
+démocratie
+
+
+Bon jeu.</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QCheckBox" name="checkBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>331</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Afficher au prochain lancement</string>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>404</x>
+     <y>290</y>
+     <width>111</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Fermer</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

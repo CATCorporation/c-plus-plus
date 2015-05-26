@@ -15,5 +15,6 @@
         <file>img/up.png</file>
         <file>img/logo.jpg</file>
         <file>img/finish.PNG</file>
+        <file>img/aide.png</file>
     </qresource>
 </RCC>

@@ -11,6 +11,8 @@
 
 #define CONFIG_SERVEUR  "CONFIG_SERV.ini"
 
+class HowToPlay;
+
 namespace Ui {
 class Client;
 }
@@ -39,6 +41,8 @@ private slots:
     void sendDisconnect();
     void againConnected();
 
+    void on_aide_clicked();
+
 private:
     Ui::Client *ui;
     QString name;
@@ -52,6 +56,8 @@ private:
     int  m_nMouseClick_X_Coordinate;
     int  m_nMouseClick_Y_Coordinate;
     QSettings * fichierIni;
+    bool showTuto;
+    HowToPlay * tutoriel;
 
     void showLogin();
     void loadMap(QString idx);

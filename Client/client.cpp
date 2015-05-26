@@ -5,6 +5,7 @@
 #include <QDesktopServices>
 #include <QDir>
 #include <QFileInfoList>
+#include "howtoplay.h"
 
 Client::Client(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +21,8 @@ Client::Client(QWidget *parent) :
     isConnected = new QTimer;
     loginDiaog = new Login(this);
     rendu = new renderer;
+    showTuto = true;
+    tutoriel = new HowToPlay(this);
 
     makeConenct();
 
@@ -94,6 +97,12 @@ void Client::readSoc()
                     loginDiaog->changeText("Pseudo deja utilisé");
                     loginDiaog->exec();
                }
+               else
+               {
+                    if(showTuto)
+                        tutoriel->show();
+               }
+
                loginDiaog->deleteLater();
             }
             else if(ligne.contains("count"))
@@ -130,6 +139,13 @@ void Client::readSoc()
                 reponse = ligne.split("|").at(1);
                 reponse.remove("\n");
                 rendu->rendu(reponse,currentLevel,ui->graphicsView);
+            }
+            else if(ligne.contains("mode"))
+            {
+                reponse = ligne.split("|").at(2);
+                reponse.remove("\n");
+                ui->horizontalSlider->setValue(ui->horizontalSlider->value()+ reponse.toInt());
+                ui->chat->textCursor().insertText(ligne.split("|").at(0));
             }
             else
                 ui->chat->textCursor().insertText(ligne);
@@ -213,6 +229,7 @@ int Client::countMap()
 
 void Client::loadConfig()
 {
+    showTuto = fichierIni->value(tr("CONF/TUTO"),"true").toBool();
     serverAddr = fichierIni->value(tr("RESEAU/ADDRESS"),"").toString();
     if(serverAddr.isEmpty())
     {
@@ -235,4 +252,9 @@ void Client::connectApplication()
     timer->start(1500);
     isConnected->start(20000);
 
+}
+
+void Client::on_aide_clicked()
+{
+    tutoriel->show();
 }
