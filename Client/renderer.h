@@ -15,7 +15,7 @@ class renderer : public QObject
 public:
     explicit renderer(QObject *parent = 0);
     ~renderer();
-    void rendu(int level,int ordonnee,int abcisse, QGraphicsView * view);
+    void rendu(QString player ="", int level=0, QGraphicsView * view = NULL);
     bool loadMap(QString idx);
 
 signals:
@@ -24,6 +24,7 @@ public slots:
 
 private:
     QStringList mapDesign;
+    QPoint start;
 
 };
 

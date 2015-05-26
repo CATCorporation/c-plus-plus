@@ -136,7 +136,7 @@ border:none;</string>
      <string notr="true">background: none;</string>
     </property>
     <property name="text">
-     <string>zeirgzeihrlzzelrizeoirzie zerz erzoehrizeru pizer z</string>
+     <string/>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>

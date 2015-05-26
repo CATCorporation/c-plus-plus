@@ -6,6 +6,7 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Choisissez votre pseudo");
 }
 
 Login::~Login()
