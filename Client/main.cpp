@@ -22,5 +22,9 @@ int main(int argc, char *argv[])
     qApp->processEvents();
     w.connectApplication();
 
+    splash.showMessage("Vérification des mises à jours");
+    qApp->processEvents();
+    w.checkUpdate();
+
     return a.exec();
 }

@@ -2,6 +2,9 @@
 #include "ui_client.h"
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QDesktopServices>
+#include <QDir>
+#include <QFileInfoList>
 
 Client::Client(QWidget *parent) :
     QMainWindow(parent),
@@ -93,6 +96,23 @@ void Client::readSoc()
                }
                loginDiaog->deleteLater();
             }
+            else if(ligne.contains("count"))
+            {
+                reponse = ligne.split("|").at(1);
+                reponse.remove("\n");
+                if(reponse.toInt() != countMap())
+                {
+                    QMessageBox::warning(this,"Mise à jour disponible","Votre version n'est pas à jour.\nVeuiller télécharger la dernière mise à jour afin de pouvoir continuer à utiliser le logiciel");
+                    QDesktopServices::openUrl ( QUrl("http://stitch.synology.me/Maze solvers/donwload.html") );
+                    this->close();
+                }
+                else
+                {
+                    this->show();
+                    showLogin();
+                    timer->deleteLater();
+                }
+            }
             else if(ligne.contains("load"))
             {
                 reponse = ligne.split("|").at(1);
@@ -126,12 +146,6 @@ void Client::timeout()
     {
         QMessageBox::critical(0,"ERREUR","Impossible de se connecter au serveur");
         this->close();
-    }
-    else
-    {
-        this->show();
-        showLogin();
-        timer->deleteLater();
     }
 }
 
@@ -179,6 +193,24 @@ void Client::makeConenct()
     connect(ui->exit,SIGNAL(clicked()),this,SLOT(sendDisconnect()));
 }
 
+int Client::countMap()
+{
+    QDir dir = QDir::currentPath() + "/map/";
+
+    QFileInfoList listRepertoire = dir.entryInfoList(QDir::Dirs | QDir::Files);
+    int numberFiles = 0;
+
+    for (int i = 0; i < listRepertoire.size(); ++i)
+    {
+        QFileInfo fileInfos = listRepertoire.at(i);
+        if(fileInfos.isFile())
+        {
+            numberFiles++;
+        }
+    }
+    return numberFiles;
+}
+
 void Client::loadConfig()
 {
     serverAddr = fichierIni->value(tr("RESEAU/ADDRESS"),"").toString();
@@ -187,6 +219,12 @@ void Client::loadConfig()
         QMessageBox::information(this,"Erreur chargement","Impossible de charger la configuration");
         this->close();
     }
+}
+
+void Client::checkUpdate()
+{
+    QTextStream flux(&socket);
+    flux << "count|"<< endl;
 }
 
 void Client::connectApplication()

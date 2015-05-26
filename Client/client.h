@@ -29,6 +29,7 @@ public:
     void closeEvent(QCloseEvent *e);    
     void connectApplication();
     void loadConfig();
+    void checkUpdate();
 
 private slots:
     void on_pushButton_clicked();
@@ -55,6 +56,7 @@ private:
     void showLogin();
     void loadMap(QString idx);
     void makeConenct();
+    int countMap();
 
 };
 
