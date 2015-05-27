@@ -80,7 +80,8 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgb
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);
-border-radius:15px;</string>
+border-bottom-right-radius:5px;
+border-top-right-radius:5px;</string>
      </property>
     </widget>
     <widget class="QSlider" name="horizontalSlider">
@@ -199,7 +200,7 @@ border:none;</string>
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>641</width>
+      <width>311</width>
       <height>31</height>
      </rect>
     </property>
@@ -236,6 +237,30 @@ padding: 0px;
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="vie">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>20</y>
+      <width>271</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: none;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>

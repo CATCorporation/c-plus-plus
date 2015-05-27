@@ -56,7 +56,7 @@ private:
     int  m_nMouseClick_X_Coordinate;
     int  m_nMouseClick_Y_Coordinate;
     QSettings * fichierIni;
-    bool showTuto;
+    bool showTuto,isOk;
     HowToPlay * tutoriel;
 
     void showLogin();

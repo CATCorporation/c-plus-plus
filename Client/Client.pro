@@ -29,3 +29,5 @@ FORMS    += client.ui \
 
 RESOURCES += \
     img.qrc
+
+win32:RC_ICONS += maze.ico

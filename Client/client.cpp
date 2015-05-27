@@ -23,7 +23,7 @@ Client::Client(QWidget *parent) :
     rendu = new renderer;
     showTuto = true;
     tutoriel = new HowToPlay(this);
-
+    isOk = false;
     makeConenct();
 
 }
@@ -101,6 +101,7 @@ void Client::readSoc()
                {
                     if(showTuto)
                         tutoriel->show();
+                    isOk = true;
                }
 
                loginDiaog->deleteLater();
@@ -134,21 +135,22 @@ void Client::readSoc()
 
                 ui->label->setText("Niveau : " + QString::number(currentLevel));
             }
-            else if(ligne.contains("move"))
+            else if(ligne.contains("move") && isOk)
             {
                 reponse = ligne.split("|").at(1);
                 reponse.remove("\n");
                 rendu->rendu(reponse,currentLevel,ui->graphicsView);
+                ui->vie->setText("Vie : "+reponse.split("&").at(4));
             }
-            else if(ligne.contains("mode"))
+            else if(ligne.contains("mode") && isOk)
             {
                 reponse = ligne.split("|").at(2);
                 reponse.remove("\n");
-                ui->horizontalSlider->setValue(ui->horizontalSlider->value()+ reponse.toInt());
+                ui->horizontalSlider->setValue(reponse.toInt());
                 ui->chat->textCursor().insertText(ligne.split("|").at(0));
             }
             else
-                ui->chat->textCursor().insertText(ligne);
+                ui->chat->textCursor().insertText(ligne.split("|").at(0));
         }
 
         QTextCursor c = ui->chat->textCursor();
