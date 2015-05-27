@@ -75,6 +75,7 @@ public:
         chat->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
 "border-bottom-right-radius:5px;\n"
 "border-top-right-radius:5px;"));
+        chat->setReadOnly(true);
         horizontalSlider = new QSlider(groupBox);
         horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
         horizontalSlider->setEnabled(false);

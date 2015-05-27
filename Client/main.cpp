@@ -19,14 +19,15 @@ int main(int argc, char *argv[])
     w.loadConfig();
 
     splash.showMessage("Connexion en cours");
-    qApp->processEvents();
+    //qApp->processEvents();
     w.connectApplication();
-    QThread::sleep(2);
 
-    splash.showMessage("Vérification des mises à jours");
+    splash.showMessage("Vérification mise a jours client");
     qApp->processEvents();
     w.checkVersion();
-    QThread::sleep(2);
+
+    splash.showMessage("Vérification mise a jours contenue");
+    qApp->processEvents();
     w.checkUpdate();
 
     return a.exec();

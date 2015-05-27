@@ -83,6 +83,9 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgb
 border-bottom-right-radius:5px;
 border-top-right-radius:5px;</string>
      </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QSlider" name="horizontalSlider">
      <property name="enabled">

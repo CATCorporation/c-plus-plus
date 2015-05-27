@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'howtoplay.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.1
+** Created by: Qt User Interface Compiler version 5.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -65,7 +65,7 @@ public:
 "Pour se deplacer il suffit d'\303\251crire les commandes suivantes :\n"
 "\n"
 "up\n"
-"donw\n"
+"down\n"
 "left\n"
 "right\n"
 "\n"
