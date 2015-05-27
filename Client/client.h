@@ -32,6 +32,7 @@ public:
     void connectApplication();
     void loadConfig();
     void checkUpdate();
+    void checkVersion();
 
 private slots:
     void on_pushButton_clicked();
@@ -58,6 +59,7 @@ private:
     QSettings * fichierIni;
     bool showTuto,isOk;
     HowToPlay * tutoriel;
+    QString version;
 
     void showLogin();
     void loadMap(QString idx);

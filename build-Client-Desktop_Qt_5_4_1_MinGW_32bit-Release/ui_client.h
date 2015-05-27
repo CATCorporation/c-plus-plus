@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'client.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.1
+** Created by: Qt User Interface Compiler version 5.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -41,6 +41,7 @@ public:
     QGraphicsView *graphicsView;
     QLabel *label;
     QPushButton *aide;
+    QLabel *vie;
 
     void setupUi(QMainWindow *Client)
     {
@@ -72,7 +73,8 @@ public:
         chat->setObjectName(QStringLiteral("chat"));
         chat->setGeometry(QRect(10, 60, 441, 461));
         chat->setStyleSheet(QLatin1String("background-color: rgb(255, 255, 255);\n"
-"border-radius:15px;"));
+"border-bottom-right-radius:5px;\n"
+"border-top-right-radius:5px;"));
         horizontalSlider = new QSlider(groupBox);
         horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
         horizontalSlider->setEnabled(false);
@@ -117,7 +119,7 @@ public:
 "border:none;"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(20, 20, 641, 31));
+        label->setGeometry(QRect(20, 20, 311, 31));
         QFont font1;
         font1.setPointSize(12);
         label->setFont(font1);
@@ -131,6 +133,12 @@ public:
 "margin: 0px;\n"
 "padding: 0px;\n"
 ""));
+        vie = new QLabel(centralWidget);
+        vie->setObjectName(QStringLiteral("vie"));
+        vie->setGeometry(QRect(370, 20, 271, 31));
+        vie->setFont(font1);
+        vie->setStyleSheet(QStringLiteral("background: none;"));
+        vie->setAlignment(Qt::AlignCenter);
         Client->setCentralWidget(centralWidget);
 
         retranslateUi(Client);
@@ -148,6 +156,7 @@ public:
         exit->setText(QString());
         label->setText(QString());
         aide->setText(QString());
+        vie->setText(QString());
     } // retranslateUi
 
 };

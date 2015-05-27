@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
 
     splash.showMessage("Vérification des mises à jours");
     qApp->processEvents();
+    w.checkVersion();
     QThread::sleep(2);
     w.checkUpdate();
 

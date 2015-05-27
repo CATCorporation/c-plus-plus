@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Maze Solvers"
-#define MyAppVersion "1"
+#define MyAppVersion "1.0.0.2"
 #define MyAppPublisher "CAT Corporation"
 #define MyAppURL "http://stitch.synology.me/Maze%20solvers/index.html"
 #define MyAppExeName "Client.exe"
@@ -14,7 +14,7 @@
 AppId={{1D97DD34-BA6A-4DD8-801F-6D7A4415AE94}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
+AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
@@ -30,25 +30,45 @@ Compression=lzma
 SolidCompression=yes
 
 [Languages]
-Name: "english"; MessagesFile: "compiler:Default.isl"
-Name: "french"; MessagesFile: "compiler:Languages\French.isl"
+Name: english; MessagesFile: compiler:Default.isl
+Name: french; MessagesFile: compiler:Languages\French.isl
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
+Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
+Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "F:\Documents\GitHub\c-plus-plus\Client\instal\Client.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "F:\Documents\GitHub\c-plus-plus\Client\instal\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: F:\Documents\GitHub\c-plus-plus\Client\instal\Client.exe; DestDir: {app}
+Source: F:\Documents\GitHub\c-plus-plus\Client\instal\*; DestDir: {app}; Flags: recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
-Name: "{group}\{cm:ProgramOnTheWeb,{#MyAppName}}"; Filename: "{#MyAppURL}"
-Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
-Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: quicklaunchicon
+Name: {group}\{#MyAppName}; Filename: {app}\{#MyAppExeName}
+Name: {group}\{cm:ProgramOnTheWeb,{#MyAppName}}; Filename: {#MyAppURL}
+Name: {group}\{cm:UninstallProgram,{#MyAppName}}; Filename: {uninstallexe}
+Name: {commondesktop}\{#MyAppName}; Filename: {app}\{#MyAppExeName}; Tasks: desktopicon
+Name: {userappdata}\Microsoft\Internet Explorer\Quick Launch\{#MyAppName}; Filename: {app}\{#MyAppExeName}; Tasks: quicklaunchicon
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+Filename: {app}\{#MyAppExeName}; Description: {cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}; Flags: nowait postinstall skipifsilent
 
+[Code]
+function InitializeSetup(): boolean;
+var
+  ResultCode: integer;
+begin
+
+  // Launch Notepad and wait for it to terminate
+  if Exec(ExpandConstant('{pf}\{#MyAppName}\unins000.exe'), '', '', SW_SHOW,
+     ewWaitUntilTerminated, ResultCode) then
+  begin
+    // handle success if necessary; ResultCode contains the exit code
+  end
+  else begin
+    // handle failure if necessary; ResultCode contains the error code
+  end;
+
+  // Proceed Setup
+  Result := True;
+
+end;

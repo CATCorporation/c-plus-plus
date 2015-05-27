@@ -106,6 +106,17 @@ void Client::readSoc()
 
                loginDiaog->deleteLater();
             }
+            else if(ligne.contains("version"))
+            {
+                reponse = ligne.split("|").at(1);
+                reponse.remove("\n");
+                if(version != reponse)
+                {
+                    QMessageBox::warning(this,"Mise à jour disponible","Votre client n'est pas à jour.\nVeuiller télécharger le dernier client");
+                    QDesktopServices::openUrl ( QUrl("http://stitch.synology.me/Maze solvers/donwload.html") );
+                    this->close();
+                }
+            }
             else if(ligne.contains("count"))
             {
                 reponse = ligne.split("|").at(1);
@@ -233,6 +244,8 @@ void Client::loadConfig()
 {
     showTuto = fichierIni->value(tr("CONF/TUTO"),"true").toBool();
     serverAddr = fichierIni->value(tr("RESEAU/ADDRESS"),"").toString();
+    version = fichierIni->value(tr("CLIENT/VERSION"),"").toString();
+
     if(serverAddr.isEmpty())
     {
         QMessageBox::information(this,"Erreur chargement","Impossible de charger la configuration");
@@ -246,10 +259,15 @@ void Client::checkUpdate()
     flux << "count|"<< endl;
 }
 
+void Client::checkVersion()
+{
+    QTextStream flux(&socket);
+    flux << "version|"<< endl;
+}
+
 void Client::connectApplication()
 {
     socket.connectToHost(serverAddr, 1234);
-
 
     timer->start(1500);
     isConnected->start(20000);
