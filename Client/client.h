@@ -28,6 +28,7 @@ public:
     void mousePressEvent(QMouseEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
     void keyPressEvent(QKeyEvent *e);
+    void keyReleaseEvent(QKeyEvent *e);
     void closeEvent(QCloseEvent *e);    
     void connectApplication();
     void loadConfig();

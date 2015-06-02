@@ -14,6 +14,7 @@ Client::Client(QWidget *parent) :
     ui->setupUi(this);
     this->setWindowFlags(Qt::FramelessWindowHint);
 
+
     QString iniPath = CONFIG_SERVEUR;
     fichierIni = new QSettings(iniPath,QSettings::IniFormat);
 
@@ -54,6 +55,33 @@ void Client::keyPressEvent(QKeyEvent *e)
 {
     if(e->key() == Qt::Key_Return)
         on_pushButton_clicked();
+    if(e->key() == Qt::Key_Enter)
+            on_pushButton_clicked();
+    if(e->key() == Qt::Key_Down)
+    {
+        ui->message->setText("down");
+        on_pushButton_clicked();
+    }
+    if(e->key() == Qt::Key_Up)
+    {
+        ui->message->setText("up");
+        on_pushButton_clicked();
+    }
+    if(e->key() == Qt::Key_Left)
+    {
+        ui->message->setText("left");
+        on_pushButton_clicked();
+    }
+    if(e->key() == Qt::Key_Right)
+    {
+        ui->message->setText("right");
+        on_pushButton_clicked();
+    }
+}
+
+void Client::keyReleaseEvent(QKeyEvent *e)
+{
+    keyPressEvent(e);
 }
 
 void Client::closeEvent(QCloseEvent *e)
