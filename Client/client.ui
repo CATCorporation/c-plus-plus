@@ -30,6 +30,13 @@
       <height>641</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">border : 1px solid black;
 background:transparent;
@@ -75,7 +82,7 @@ background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:0, stop:0 rgb
        <x>10</x>
        <y>60</y>
        <width>441</width>
-       <height>461</height>
+       <height>441</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -161,6 +168,29 @@ padding: 0px;
      </property>
      <property name="text">
       <string>Démocratie</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>510</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:none;</string>
+     </property>
+     <property name="text">
+      <string>Votre texte :</string>
      </property>
     </widget>
    </widget>

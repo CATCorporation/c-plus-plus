@@ -51,7 +51,7 @@ void Client::mouseMoveEvent(QMouseEvent *e)
     this->move(e->globalX()-m_nMouseClick_X_Coordinate,e->globalY()-m_nMouseClick_Y_Coordinate);
 }
 
-void Client::keyPressEvent(QKeyEvent *e)
+void Client::keyzzPressEvent(QKeyEvent *e)
 {
     if(e->key() == Qt::Key_Return)
         on_pushButton_clicked();
@@ -81,7 +81,7 @@ void Client::keyPressEvent(QKeyEvent *e)
 
 void Client::keyReleaseEvent(QKeyEvent *e)
 {
-    keyPressEvent(e);
+    keyzzPressEvent(e);
 }
 
 void Client::closeEvent(QCloseEvent *e)
