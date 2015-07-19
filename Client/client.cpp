@@ -21,7 +21,7 @@ Client::Client(QWidget *parent) :
     timer = new QTimer;
     isConnected = new QTimer;
     loginDiaog = new Login(this);
-    rendu = new renderer;
+    render = new renderer;
     showTuto = true;
     tutoriel = new HowToPlay(this);
     isOk = false;
@@ -31,7 +31,7 @@ Client::Client(QWidget *parent) :
 
 Client::~Client()
 {
-    delete rendu;
+    delete render;
     delete ui;
 }
 
@@ -166,10 +166,10 @@ void Client::readSoc()
             {
                 reponse = ligne.split("|").at(1);
                 reponse.remove("\n");
-                if(rendu->loadMap(reponse))
+                if(render->loadMap(reponse))
                 {
                     currentLevel = ligne.split("|").at(2).toInt();
-                    rendu->rendu(ligne.split("|").at(3),currentLevel,ui->graphicsView);
+                    render->rendu(ligne.split("|").at(3),currentLevel,ui->graphicsView);
                 }
 
                 ui->label->setText("Niveau : " + QString::number(currentLevel));
@@ -178,7 +178,7 @@ void Client::readSoc()
             {
                 reponse = ligne.split("|").at(1);
                 reponse.remove("\n");
-                rendu->rendu(reponse,currentLevel,ui->graphicsView);
+                render->rendu(reponse,currentLevel,ui->graphicsView);
                 ui->vie->setText("Vie : "+reponse.split("&").at(4));
             }
             else if(ligne.contains("mode") && isOk)
@@ -238,7 +238,7 @@ void Client::showLogin()
 
 void Client::loadMap(QString idx)
 {
-    rendu->loadMap(idx);
+    render->loadMap(idx);
 }
 
 void Client::makeConenct()

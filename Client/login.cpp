@@ -21,7 +21,7 @@ void Login::changeText(QString text)
 }
 void Login::on_connecter_clicked()
 {
-    emit envoyerPseudo(ui->pseudo->text());
+    emit sendPseudo(ui->pseudo->text());
     this->close();
 }
 

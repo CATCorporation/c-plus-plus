@@ -8,7 +8,7 @@ HowToPlay::HowToPlay(QWidget *parent) :
     ui->setupUi(this);
 
     QString iniPath = CONFIG_SERVEUR;
-    fichierIni = new QSettings(iniPath,QSettings::IniFormat);
+    iniFile = new QSettings(iniPath,QSettings::IniFormat);
 }
 
 HowToPlay::~HowToPlay()
@@ -18,6 +18,6 @@ HowToPlay::~HowToPlay()
 
 void HowToPlay::on_pushButton_clicked()
 {
-    fichierIni->setValue(tr("CONF/TUTO"),ui->checkBox->isChecked());
+    iniFile->setValue(tr("CONF/TUTO"),ui->checkBox->isChecked());
     this->close();
 }

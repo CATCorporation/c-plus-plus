@@ -23,7 +23,7 @@ private:
     Ui::Login *ui;
 
 signals:
-    void envoyerPseudo(QString ps);
+    void sendPseudo(QString ps);
 
 };
 

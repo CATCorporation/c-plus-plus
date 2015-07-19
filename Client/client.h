@@ -54,7 +54,7 @@ private:
     QTimer *timer;
     QTimer *isConnected;
     Login * loginDiaog;
-    renderer *rendu;
+    renderer *render;
     int  m_nMouseClick_X_Coordinate;
     int  m_nMouseClick_Y_Coordinate;
     QSettings * fichierIni;

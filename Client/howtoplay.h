@@ -23,7 +23,7 @@ private slots:
 
 private:
     Ui::HowToPlay *ui;
-    QSettings * fichierIni;
+    QSettings * iniFile;
 };
 
 #endif // HOWTOPLAY_H
